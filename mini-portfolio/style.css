@@ -1,4 +1,4 @@
-Reset
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +7,10 @@ Reset
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to right, #90b7de, #e9ecef);
-  color: #333;
+  background: radial-gradient(circle at top left, #0f0c29, #302b63, #24243e); /* deep purple/blue gradient */
+  color: #f0f0f0;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 /* Container + Card */
@@ -19,53 +20,62 @@ body {
   margin-top: 30px;
 }
 .card {
-  background: #d7b5b5;
-  padding: 20px 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  padding: 25px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   text-align: center;
-  transition: transform 0.3s;
+  transition: all 0.4s ease;
 }
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
+  border: 1px solid #ff00cc;
+  box-shadow: 0 0 30px #ff00cc66, 0 0 60px #00f0ff44;
 }
 .card h5 {
-  font-size: 24px;
-  color: #222;
-  letter-spacing: 2px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff00cc; /* magenta */
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px #ff00cc77;
 }
 
-/* Navigation */
+/* Navbar */
 .nav {
   display: flex;
   justify-content: center;
-  background: linear-gradient(45deg, #3a3227, #ff5722);
-  padding: 14px 0;
+  background: rgba(15,15,30,0.85);
+  backdrop-filter: blur(10px);
+  padding: 16px 0;
   margin-top: 20px;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 .nav a {
-  color: #fe5353;
+  color: #fff;
   text-decoration: none;
   margin: 0 25px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   position: relative;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 .nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -6px;
   width: 0;
   height: 2px;
-  background: #fff;
-  transition: width 0.3s;
+  background: linear-gradient(90deg, #ff00cc, #00f0ff);
+  transition: width 0.4s;
+  border-radius: 2px;
 }
 .nav a:hover {
-  color: #ffe082;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff, 0 0 15px #ff00cc;
 }
 .nav a:hover::after {
   width: 100%;
@@ -74,106 +84,129 @@ body {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 .mine {
-  width: 170px;
-  height: 170px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   margin: 20px 0;
-  border: 5px solid #ff9800;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  border: 5px solid transparent;
+  background: linear-gradient(45deg, #ff00cc, #00f0ff) border-box;
+  box-shadow: 0 0 20px #ff00cc88, 0 0 30px #00f0ff66;
+  transition: transform 0.4s ease;
+}
+.mine:hover {
+  transform: rotate(8deg) scale(1.1);
 }
 .intro h1 {
-  font-size: 30px;
-  margin-bottom: 12px;
-  color: #ff5722;
+  font-size: 34px;
+  margin-bottom: 14px;
+  color: #fff;
+  text-shadow: 0 0 12px #ff00cc66;
 }
 .intro p {
   font-size: 18px;
-  color: #555;
+  color: #ccc;
 }
 
-/* About & Skills Cards */
+/* Cards (About + Skills + Contact) */
 .contact, .skills {
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
-  background: #fff;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
   padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
 }
 .contact:hover, .skills:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px #ff00cc55, 0 0 35px #00f0ff44;
 }
 .skills h2, .contact h1, .contact h2 {
   margin-bottom: 15px;
-  color: #ff5722;
+  color: #00f0ff;
+  font-size: 22px;
+  text-shadow: 0 0 8px #00f0ff77;
 }
+
+/* Skills List */
 .skills ul {
   list-style: none;
   text-align: left;
 }
 .skills ul li {
-  background: #fce4ec;
-  margin: 8px 0;
+  background: rgba(255,255,255,0.08);
+  margin: 10px 0;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 500;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 .skills ul li:hover {
-  background: #f8bbd0;
+  background: rgba(255,0,204,0.15);
+  color: #ff00cc;
+  transform: translateX(8px);
 }
 
-/* Contact Form */
+/* Form */
 label {
   display: block;
   margin-top: 12px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 500;
+  color: #fff;
 }
 input, textarea {
   width: 100%;
   padding: 12px;
   margin-top: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 8px;
-  font-size: 16px;
-  transition: border 0.3s;
+  font-size: 15px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  transition: all 0.3s;
 }
 input:focus, textarea:focus {
-  border-color: #ff5722;
+  border-color: #ff00cc;
+  box-shadow: 0 0 10px #ff00cc88;
   outline: none;
 }
-.button {
-  text-align: center;
-  margin: 25px 0;
-}
-.button button {
-  background: linear-gradient(45deg, #ff9800, #ff5722);
+
+/* Button */
+button {
+  background: linear-gradient(90deg, #ff00cc, #00f0ff);
   color: #fff;
-  padding: 12px 35px;
+  padding: 14px 40px;
+  margin-top: 20px;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
   cursor: pointer;
   font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px #ff00cc66, 0 0 25px #00f0ff55;
 }
-.button button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #ff00ccaa, 0 0 40px #00f0ffaa;
 }
 
 /* Footer */
 .footer {
   text-align: center;
-  padding: 18px;
-  background: #333;
+  padding: 22px;
+  background: rgba(15,15,30,0.9);
   color: #fff;
-  margin-top: 40px;
-  border-radius: 20px 20px 0 0;
+  margin-top: 50px;
+  border-radius: 25px 25px 0 0;
   font-size: 14px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.footer p {
+  color: #aaa;
 }
